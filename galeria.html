@@ -215,6 +215,25 @@
       font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
     }
 
+    .load-more-wrap {
+      display: flex; justify-content: center;
+      padding: 48px 24px;
+      background: var(--bg);
+    }
+    .btn-load-more {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--brass-gradient);
+      color: #fff;
+      font-family: var(--font-label);
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 18px 48px;
+      border: none; cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.15s ease;
+    }
+    .btn-load-more:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-load-more.hidden { display: none; }
+
     /* ── LIGHTBOX ── */
     #lightbox {
       position: fixed; inset: 0; z-index: 9999;
@@ -363,6 +382,9 @@
 <!-- MASONRY GALLERY -->
 <div class="gallery-wrap">
   <div class="masonry" id="masonry"></div>
+  <div class="load-more-wrap">
+    <button class="btn-load-more" id="btnLoadMore" onclick="loadMore()">Ver más</button>
+  </div>
 </div>
 
 <!-- LIGHTBOX -->
@@ -395,6 +417,7 @@ const TEXTS = {
     footer_back:  '← Volver al sitio',
     footer_copy:  '© 2025 Simón Cifuentes. Todos los derechos reservados.',
     photos_label: 'fotografías',
+    load_more:    'Ver más',
   },
   en: {
     back_label:   'Back',
@@ -403,6 +426,7 @@ const TEXTS = {
     footer_back:  '← Back to site',
     footer_copy:  '© 2025 Simón Cifuentes. All rights reserved.',
     photos_label: 'photographs',
+    load_more:    'See more',
   }
 };
 
@@ -447,6 +471,8 @@ const PHOTOS = [
 
 let currentLang = 'es';
 let currentIdx  = 0;
+let visibleCount = 8;
+const BATCH_SIZE = 8;
 
 function switchLang(lang) {
   currentLang = lang;
@@ -457,6 +483,7 @@ function switchLang(lang) {
     const k = el.getAttribute('data-key');
     if (TEXTS[lang][k]) el.textContent = TEXTS[lang][k];
   });
+  visibleCount = 8;
   renderGallery();
 }
 
@@ -467,7 +494,8 @@ function renderGallery() {
 
   const masonry = document.getElementById('masonry');
   masonry.innerHTML = '';
-  PHOTOS.forEach((photo, i) => {
+  const showing = PHOTOS.slice(0, visibleCount);
+  showing.forEach((photo, i) => {
     const caption = currentLang === 'es' ? photo.caption_es : photo.caption_en;
     const item = document.createElement('div');
     item.className = 'masonry-item ' + (photo.size || 'std');
@@ -482,6 +510,24 @@ function renderGallery() {
       </div>`;
     masonry.appendChild(item);
   });
+
+  const btn = document.getElementById('btnLoadMore');
+  if (visibleCount >= PHOTOS.length) {
+    btn.classList.add('hidden');
+  } else {
+    btn.classList.remove('hidden');
+    btn.textContent = t.load_more;
+  }
+}
+
+function loadMore() {
+  visibleCount = Math.min(visibleCount + BATCH_SIZE, PHOTOS.length);
+  renderGallery();
+  // Scroll to where new photos start
+  const items = document.querySelectorAll('.masonry-item');
+  if (items.length > visibleCount - BATCH_SIZE) {
+    items[visibleCount - BATCH_SIZE].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
 
 function openLightbox(idx) {
