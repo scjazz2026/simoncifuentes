@@ -99,12 +99,9 @@
     .masonry {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 300px;
-      grid-auto-flow: dense;
+      grid-auto-rows: 320px;
       gap: 3px;
     }
-    .masonry-item.wide { grid-column: span 2; }
-    .masonry-item.tall { grid-row: span 2; }
     .masonry-item {
       overflow: hidden; background: var(--surface-high);
       position: relative; cursor: pointer;
@@ -205,12 +202,10 @@
 
     /* RESPONSIVE */
     @media(max-width: 900px) {
-      .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 250px; }
+      .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 280px; }
     }
     @media(max-width: 540px) {
-      .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
-      .masonry-item.wide { grid-column: span 2; }
-      .masonry-item.tall { grid-row: span 1; }
+      .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
       .lightbox-nav { display: none; }
     }
   </style>
@@ -283,34 +278,34 @@ var TEXTS = {
 };
 
 var PHOTOS = [
-  { src:'img/gallery/20240915_223531743_iOS.jpg',       pos:'top center',    size:'wide', es:'En vivo',          en:'Live performance'       },
-  { src:'img/gallery/20231015_022154582_iOS.jpg',       pos:'top center',    size:'tall', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20240915_231114982_iOS.jpg',       pos:'top center',    size:'std',  es:'En escena',        en:'On stage'               },
-  { src:'img/gallery/20250910_183746000_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20250910_185244000_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20250910_190636000_iOS.jpg',       pos:'top center',    size:'std',  es:'En escena',        en:'On stage'               },
-  { src:'img/gallery/DANILO PEREZ.jpg',                 pos:'top center',    size:'wide', es:'Con Danilo Pérez', en:'With Danilo Pérez'      },
-  { src:'img/gallery/20250921_164717690_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20250921_173420900_iOS 1.jpg',     pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20250921_183738810_iOS.jpg',       pos:'top center',    size:'tall', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20250921_185156410_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20250921_185156410_iOS 1.jpg',     pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20250929_181005000_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20260107_231158987_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/JIMMY BOSH ,CARLITOS PADRON CARLOS HENRIQUEZ.jpg', pos:'center center', size:'wide', es:'Con Jimmy Bosh, Carlitos Padrón y Carlos Henríquez', en:'With Jimmy Bosh, Carlitos Padrón and Carlos Henríquez' },
-  { src:'img/gallery/20260224_013739650_iOS 1.jpg',     pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20260224_013844470_iOS.jpg',       pos:'top center',    size:'tall', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20260224_014001460_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/LUISITO QUINTERO.jpg',             pos:'top center',    size:'wide', es:'Con Luisito Quintero', en:'With Luisito Quintero' },
-  { src:'img/gallery/20260224_014502160_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20260224_025407240_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20260225_014825360_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20260309_001126129_iOS.jpg',       pos:'center center', size:'wide', es:'Con Jimmy Bosh y orquesta', en:'With Jimmy Bosh and orchestra' },
-  { src:'img/gallery/20260225_015113810_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20260225_022411690_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/20260225_030428370_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
-  { src:'img/gallery/CHRISTIAN MCBRIDE.jpg',            pos:'top center',    size:'wide', es:'Con Christian McBride', en:'With Christian McBride' },
-  { src:'img/gallery/Oscar de Leon.jpg',                pos:'top center',    size:'std',  es:'Con Oscar de León', en:'With Oscar de León'     }
+  { src:'img/gallery/20240915_223531743_iOS.jpg',       pos:'center center', es:'En vivo',          en:'Live performance'       },
+  { src:'img/gallery/20231015_022154582_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20240915_231114982_iOS.jpg',       pos:'center center', es:'En escena',        en:'On stage'               },
+  { src:'img/gallery/20250910_183746000_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250910_185244000_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250910_190636000_iOS.jpg',       pos:'center center', es:'En escena',        en:'On stage'               },
+  { src:'img/gallery/DANILO PEREZ.jpg',                 pos:'center center', es:'Con Danilo Pérez', en:'With Danilo Pérez'      },
+  { src:'img/gallery/20250921_164717690_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250921_173420900_iOS 1.jpg',     pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250921_183738810_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250921_185156410_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250921_185156410_iOS 1.jpg',     pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250929_181005000_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260107_231158987_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/JIMMY BOSH ,CARLITOS PADRON CARLOS HENRIQUEZ.jpg', pos:'center center', es:'Con Jimmy Bosh, Carlitos Padrón y Carlos Henríquez', en:'With Jimmy Bosh, Carlitos Padrón and Carlos Henríquez' },
+  { src:'img/gallery/20260224_013739650_iOS 1.jpg',     pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260224_013844470_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260224_014001460_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/LUISITO QUINTERO.jpg',             pos:'center center', es:'Con Luisito Quintero', en:'With Luisito Quintero' },
+  { src:'img/gallery/20260224_014502160_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260224_025407240_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260225_014825360_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260309_001126129_iOS.jpg',       pos:'center center', es:'Con Jimmy Bosh y orquesta', en:'With Jimmy Bosh and orchestra' },
+  { src:'img/gallery/20260225_015113810_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260225_022411690_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260225_030428370_iOS.jpg',       pos:'center center', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/CHRISTIAN MCBRIDE.jpg',            pos:'center center', es:'Con Christian McBride', en:'With Christian McBride' },
+  { src:'img/gallery/Oscar de Leon.jpg',                pos:'center center', es:'Con Oscar de León', en:'With Oscar de León'     }
 ];
 
 var currentLang = 'es';
@@ -344,7 +339,7 @@ function renderGallery() {
     var cap = currentLang === 'es' ? p.es : p.en;
 
     var item = document.createElement('div');
-    item.className = 'masonry-item ' + p.size;
+    item.className = 'masonry-item';
     item.setAttribute('data-idx', i);
     item.onclick = (function(idx) { return function() { openLightbox(idx); }; })(i);
 
