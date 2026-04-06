@@ -166,6 +166,8 @@
       background: var(--surface-high);
       position: relative;
       cursor: pointer;
+      content-visibility: auto;
+      contain-intrinsic-size: 300px 300px;
     }
 
     .masonry-item img {
@@ -174,29 +176,23 @@
       object-fit: cover;
       display: block;
       filter: grayscale(100%);
-      transition: filter 0.6s ease, transform 0.6s ease, opacity 0.5s ease;
-      opacity: 0;
-    }
-
-    .masonry-item img.loaded {
-      opacity: 1;
     }
 
     .masonry-item:hover img {
       filter: grayscale(0%);
       transform: scale(1.03);
+      transition: filter 0.5s ease, transform 0.5s ease;
     }
 
     .masonry-item-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(49,48,48,0.7) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(49,48,48,0.6) 0%, transparent 40%);
       opacity: 0;
-      transition: opacity 0.4s ease;
       display: flex; align-items: flex-end;
       padding: 20px;
     }
 
-    .masonry-item:hover .masonry-item-overlay { opacity: 1; }
+    .masonry-item:hover .masonry-item-overlay { opacity: 1; transition: opacity 0.3s ease; }
 
     .masonry-item-caption {
       font-family: var(--font-label);
@@ -471,8 +467,8 @@ const PHOTOS = [
 
 let currentLang = 'es';
 let currentIdx  = 0;
-let visibleCount = 8;
-const BATCH_SIZE = 8;
+let visibleCount = 6;
+const BATCH_SIZE = 6;
 
 function switchLang(lang) {
   currentLang = lang;
@@ -483,7 +479,7 @@ function switchLang(lang) {
     const k = el.getAttribute('data-key');
     if (TEXTS[lang][k]) el.textContent = TEXTS[lang][k];
   });
-  visibleCount = 8;
+  visibleCount = 6;
   renderGallery();
 }
 
@@ -501,9 +497,9 @@ function renderGallery() {
     item.className = 'masonry-item ' + (photo.size || 'std');
     item.onclick = () => openLightbox(i);
     const loadAttr = i < 4 ? 'eager' : 'lazy';
+    const imgSrc = encodeURI(photo.src);
     item.innerHTML = `
-      <img src="${photo.src}" alt="${caption}" loading="${loadAttr}" decoding="async" style="object-position:${photo.pos}"
-           onload="this.classList.add('loaded')"
+      <img src="${imgSrc}" alt="${caption}" loading="${loadAttr}" decoding="async" style="object-position:${photo.pos}"
            onerror="this.outerHTML='<div class=\'img-placeholder\'>${caption}</div>'" />
       <div class="masonry-item-overlay">
         <span class="masonry-item-caption">${caption}</span>
@@ -550,7 +546,7 @@ function changeLightbox(dir) {
 function updateLightbox() {
   const photo = PHOTOS[currentIdx];
   const caption = currentLang === 'es' ? photo.caption_es : photo.caption_en;
-  document.getElementById('lightboxImg').src = photo.src;
+  document.getElementById('lightboxImg').src = encodeURI(photo.src);
   document.getElementById('lightboxImg').alt = caption;
   document.getElementById('lightboxCaption').textContent = caption;
   document.getElementById('lightboxCounter').textContent = (currentIdx + 1) + ' / ' + PHOTOS.length;
