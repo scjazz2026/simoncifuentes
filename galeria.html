@@ -7,326 +7,205 @@
   <meta name="description" content="Galería fotográfica de Simón Cifuentes — Músico colombiano, New York / Bogotá." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://scjazz2026.github.io" />
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Manrope:wght@300;400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg:               #fcf9f8;
-      --surface-low:      #f6f3f2;
-      --surface-mid:      #f0eded;
-      --surface-high:     #eae7e7;
-      --surface-dim:      #dcd9d9;
-      --inverse:          #313030;
-      --inverse-low:      #3e3d3d;
-      --primary:          #80560a;
-      --primary-container:#c28f42;
-      --brass-gradient:   linear-gradient(135deg, #80560a 0%, #c28f42 100%);
-      --on-bg:            #1c1b1b;
-      --secondary-txt:    #5f5e5e;
-      --outline-var:      #d4c4b3;
+      --bg: #fcf9f8;
+      --surface-low: #f6f3f2;
+      --surface-mid: #f0eded;
+      --surface-high: #eae7e7;
+      --surface-dim: #dcd9d9;
+      --inverse: #313030;
+      --primary: #80560a;
+      --primary-container: #c28f42;
+      --brass-gradient: linear-gradient(135deg, #80560a 0%, #c28f42 100%);
+      --on-bg: #1c1b1b;
+      --secondary-txt: #5f5e5e;
+      --outline-var: #d4c4b3;
       --font-display: 'Epilogue', sans-serif;
-      --font-body:    'Manrope', sans-serif;
-      --font-label:   'Inter', sans-serif;
+      --font-body: 'Manrope', sans-serif;
+      --font-label: 'Inter', sans-serif;
       --nav-h: 72px;
     }
-
     html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      background: var(--bg);
-      color: var(--on-bg);
-      font-family: var(--font-body);
-      overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--on-bg); font-family: var(--font-body); overflow-x: hidden; }
     ::selection { background: var(--primary-container); color: var(--on-bg); }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── NAV ── */
+    /* NAV */
     #nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100; height: var(--nav-h);
-      display: flex; align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
       padding: 0 clamp(24px, 5vw, 80px);
       background: rgba(252,249,248,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 1px 0 rgba(212,196,179,0.4);
     }
-
     .nav-left { display: flex; align-items: center; gap: 28px; }
-
     .nav-back {
       display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--font-label);
-      font-size: 0.62rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--secondary-txt);
+      font-family: var(--font-label); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--secondary-txt);
       transition: color 0.3s ease;
     }
     .nav-back:hover { color: var(--primary); }
     .nav-back svg { width: 14px; height: 14px; fill: currentColor; }
-
     .nav-sep { width: 1px; height: 20px; background: var(--outline-var); }
-
     .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.1rem; font-weight: 900;
-      letter-spacing: -0.03em; text-transform: uppercase;
-      color: var(--on-bg);
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 900;
+      letter-spacing: -0.03em; text-transform: uppercase; color: var(--on-bg);
     }
-
     .nav-lang { display: flex; align-items: center; gap: 4px; }
     .nav-lang-btn {
-      background: none; border: none;
-      font-family: var(--font-label);
-      font-size: 0.62rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--secondary-txt);
-      cursor: pointer; padding: 4px 8px;
-      transition: color 0.3s ease;
+      background: none; border: none; font-family: var(--font-label);
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--secondary-txt);
+      cursor: pointer; padding: 4px 8px; transition: color 0.3s ease;
     }
     .nav-lang-btn.active { color: var(--primary); }
-    .nav-lang-btn:hover  { color: var(--on-bg); }
+    .nav-lang-btn:hover { color: var(--on-bg); }
     .nav-lang-sep { color: var(--outline-var); font-size: 0.8rem; }
 
-    /* ── HEADER ── */
+    /* HEADER */
     .gallery-header {
       background: var(--inverse);
       padding: calc(var(--nav-h) + 60px) clamp(24px, 8vw, 120px) 60px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
     }
-
     .gallery-header-label {
-      font-family: var(--font-label);
-      font-size: 0.6rem; font-weight: 600;
-      letter-spacing: 0.45em; text-transform: uppercase;
-      color: var(--primary-container);
-      margin-bottom: 16px;
-      display: flex; align-items: center; gap: 12px;
+      font-family: var(--font-label); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.45em; text-transform: uppercase; color: var(--primary-container);
+      margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
     }
     .gallery-header-label::before {
-      content: ''; display: block;
-      width: 28px; height: 2px;
-      background: var(--brass-gradient);
+      content: ''; display: block; width: 28px; height: 2px; background: var(--brass-gradient);
     }
-
     .gallery-header h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 7vw, 6rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      text-transform: uppercase;
-      color: #fff;
-      line-height: 0.92;
+      font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase;
+      color: #fff; line-height: 0.92;
     }
-
     .gallery-header h1 span { color: var(--primary-container); }
-
     .gallery-count {
-      font-family: var(--font-label);
-      font-size: 0.62rem; font-weight: 600;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      align-self: flex-end;
+      font-family: var(--font-label); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.3);
     }
 
-
-
-    /* ── GALLERY GRID ── */
-    .gallery-wrap {
-      background: var(--surface-dim);
-      min-height: calc(100vh - var(--nav-h));
-    }
-
+    /* GALLERY GRID */
+    .gallery-wrap { background: var(--surface-dim); }
     .masonry {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 280px;
+      grid-auto-rows: 300px;
       grid-auto-flow: dense;
       gap: 3px;
     }
-
-    /* Only two sizes — simple and reliable */
     .masonry-item.wide { grid-column: span 2; }
     .masonry-item.tall { grid-row: span 2; }
-    .masonry-item.std  { }
-
     .masonry-item {
-      overflow: hidden;
-      background: var(--surface-high);
-      position: relative;
-      cursor: pointer;
-      content-visibility: auto;
-      contain-intrinsic-size: 300px 280px;
+      overflow: hidden; background: var(--surface-high);
+      position: relative; cursor: pointer;
     }
-
     .masonry-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 100%; object-fit: cover; display: block;
       filter: grayscale(100%);
     }
-
     .masonry-item:hover img {
-      filter: grayscale(0%);
-      transform: scale(1.03);
+      filter: grayscale(0%); transform: scale(1.03);
       transition: filter 0.5s ease, transform 0.5s ease;
     }
-
     .masonry-item-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(49,48,48,0.6) 0%, transparent 40%);
-      opacity: 0;
-      display: flex; align-items: flex-end;
-      padding: 20px;
+      opacity: 0; display: flex; align-items: flex-end; padding: 20px;
     }
-
     .masonry-item:hover .masonry-item-overlay { opacity: 1; transition: opacity 0.3s ease; }
-
     .masonry-item-caption {
-      font-family: var(--font-label);
-      font-size: 0.58rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
+      font-family: var(--font-label); font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.9);
     }
 
-    .img-placeholder {
-      width: 100%; height: 100%;
-      min-height: 200px;
-      background: var(--surface-high);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--outline-var);
-      font-family: var(--font-label);
-      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
-    }
-
-    .load-more-wrap {
-      display: flex; justify-content: center;
-      padding: 48px 24px;
-      background: var(--bg);
-    }
+    /* LOAD MORE */
+    .load-more-wrap { display: flex; justify-content: center; padding: 48px 24px; background: var(--bg); }
     .btn-load-more {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--brass-gradient);
-      color: #fff;
-      font-family: var(--font-label);
-      font-size: 0.68rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 18px 48px;
-      border: none; cursor: pointer;
-      transition: opacity 0.2s ease, transform 0.15s ease;
+      background: var(--brass-gradient); color: #fff;
+      font-family: var(--font-label); font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; padding: 18px 48px;
+      border: none; cursor: pointer; transition: opacity 0.2s ease, transform 0.15s ease;
     }
     .btn-load-more:hover { opacity: 0.88; transform: translateY(-2px); }
     .btn-load-more.hidden { display: none; }
 
-    /* ── LIGHTBOX ── */
+    /* LIGHTBOX */
     #lightbox {
       position: fixed; inset: 0; z-index: 9999;
       background: rgba(28,27,27,0.97);
       display: flex; align-items: center; justify-content: center;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
+      opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s ease;
     }
     #lightbox.open { opacity: 1; visibility: visible; }
-
-    .lightbox-img {
-      max-width: 88vw; max-height: 88vh;
-      object-fit: contain;
-      filter: none;
-      transition: transform 0.3s ease;
-    }
-
+    .lightbox-img { max-width: 88vw; max-height: 88vh; object-fit: contain; }
     .lightbox-close {
       position: absolute; top: 28px; right: 32px;
-      background: none; border: none;
-      color: rgba(255,255,255,0.5);
-      font-family: var(--font-label);
-      font-size: 0.62rem; font-weight: 600;
-      letter-spacing: 0.25em; text-transform: uppercase;
-      cursor: pointer; padding: 8px;
-      transition: color 0.3s ease;
-      display: flex; align-items: center; gap: 8px;
+      background: none; border: none; color: rgba(255,255,255,0.5);
+      font-family: var(--font-label); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; padding: 8px;
+      transition: color 0.3s ease; display: flex; align-items: center; gap: 8px;
     }
     .lightbox-close:hover { color: #fff; }
     .lightbox-close svg { width: 16px; height: 16px; fill: currentColor; }
-
     .lightbox-nav {
-      position: absolute;
-      top: 50%; transform: translateY(-50%);
-      background: rgba(194,143,66,0.15);
-      border: 1px solid rgba(194,143,66,0.3);
-      color: var(--primary-container);
-      font-size: 1.4rem; width: 52px; height: 52px;
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(194,143,66,0.15); border: 1px solid rgba(194,143,66,0.3);
+      color: var(--primary-container); font-size: 1.4rem; width: 52px; height: 52px;
       display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      cursor: pointer; transition: background 0.3s ease;
     }
     .lightbox-nav:hover { background: rgba(194,143,66,0.3); }
     .lightbox-prev { left: 24px; }
     .lightbox-next { right: 24px; }
-
     .lightbox-caption {
-      position: absolute; bottom: 32px; left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-label);
-      font-size: 0.6rem; font-weight: 600;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      font-family: var(--font-label); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.35);
       white-space: nowrap;
     }
-
     .lightbox-counter {
       position: absolute; top: 32px; left: 32px;
-      font-family: var(--font-label);
-      font-size: 0.6rem; font-weight: 600;
-      letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.3);
+      font-family: var(--font-label); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; color: rgba(255,255,255,0.3);
     }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
-      background: var(--inverse);
-      padding: 32px clamp(24px, 8vw, 120px);
-      display: flex; align-items: center;
-      justify-content: space-between;
+      background: var(--inverse); padding: 32px clamp(24px, 8vw, 120px);
+      display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 16px;
     }
     .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1rem; font-weight: 900;
-      letter-spacing: -0.02em; text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      font-family: var(--font-display); font-size: 1rem; font-weight: 900;
+      letter-spacing: -0.02em; text-transform: uppercase; color: rgba(255,255,255,0.3);
     }
     .footer-back {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--brass-gradient);
-      color: #fff;
-      font-family: var(--font-label);
-      font-size: 0.62rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 12px 28px;
+      background: var(--brass-gradient); color: #fff;
+      font-family: var(--font-label); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; padding: 12px 28px;
       transition: opacity 0.2s ease;
     }
     .footer-back:hover { opacity: 0.85; }
     .footer-copy {
-      font-family: var(--font-label);
-      font-size: 0.56rem; letter-spacing: 0.15em;
+      font-family: var(--font-label); font-size: 0.56rem; letter-spacing: 0.15em;
       color: rgba(255,255,255,0.2);
     }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media(max-width: 900px) {
-      .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 240px; }
-      .masonry-item.wide { grid-column: span 2; }
+      .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 250px; }
     }
     @media(max-width: 540px) {
       .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
@@ -338,10 +217,9 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-left">
-    <a href="index.html" class="nav-back">
+    <a href="simon-cifuentes.html" class="nav-back">
       <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
       <span data-key="back_label">Volver</span>
     </a>
@@ -355,7 +233,6 @@
   </div>
 </nav>
 
-<!-- HEADER -->
 <header class="gallery-header">
   <div>
     <div class="gallery-header-label" data-key="header_label"></div>
@@ -364,9 +241,6 @@
   <div class="gallery-count" id="galleryCount"></div>
 </header>
 
-
-
-<!-- MASONRY GALLERY -->
 <div class="gallery-wrap">
   <div class="masonry" id="masonry"></div>
   <div class="load-more-wrap">
@@ -374,7 +248,6 @@
   </div>
 </div>
 
-<!-- LIGHTBOX -->
 <div id="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">
     <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
@@ -387,119 +260,115 @@
   <span class="lightbox-caption" id="lightboxCaption"></span>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-logo">Simón Cifuentes</span>
-  <a href="index.html" class="footer-back" data-key="footer_back"></a>
+  <a href="simon-cifuentes.html" class="footer-back" data-key="footer_back"></a>
   <p class="footer-copy" data-key="footer_copy"></p>
 </footer>
 
 <script>
-// ── TRANSLATIONS ──
-const TEXTS = {
+var TEXTS = {
   es: {
-    back_label:   'Volver',
-    header_label: 'Galería',
-    close_label:  'Cerrar',
-    footer_back:  '← Volver al sitio',
-    footer_copy:  '© 2025 Simón Cifuentes. Todos los derechos reservados.',
-    photos_label: 'fotografías',
-    load_more:    'Ver más',
+    back_label:'Volver', header_label:'Galería', close_label:'Cerrar',
+    footer_back:'← Volver al sitio',
+    footer_copy:'© 2025 Simón Cifuentes. Todos los derechos reservados.',
+    photos_label:'fotografías', load_more:'Ver más'
   },
   en: {
-    back_label:   'Back',
-    header_label: 'Gallery',
-    close_label:  'Close',
-    footer_back:  '← Back to site',
-    footer_copy:  '© 2025 Simón Cifuentes. All rights reserved.',
-    photos_label: 'photographs',
-    load_more:    'See more',
+    back_label:'Back', header_label:'Gallery', close_label:'Close',
+    footer_back:'← Back to site',
+    footer_copy:'© 2025 Simón Cifuentes. All rights reserved.',
+    photos_label:'photographs', load_more:'See more'
   }
 };
 
-const PHOTOS = [
-  { src:'img/gallery/20240915_223531743_iOS.jpg',                              pos:'top center',    size:'wide', caption_es:'En vivo',                                          caption_en:'Live performance'                                  },
-  { src:'img/gallery/20231015_022154582_iOS.jpg',                              pos:'top center',    size:'tall', caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20240915_231114982_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'En escena',                                        caption_en:'On stage'                                          },
-  { src:'img/gallery/20250910_183746000_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20250910_185244000_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20250910_190636000_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'En escena',                                        caption_en:'On stage'                                          },
-  { src:'img/gallery/DANILO PEREZ.jpg',                                        pos:'top center',    size:'wide', caption_es:'Con Danilo Pérez',                                 caption_en:'With Danilo Pérez'                                 },
-  { src:'img/gallery/20250921_164717690_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20250921_173420900_iOS 1.jpg',                            pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20250921_183738810_iOS.jpg',                              pos:'top center',    size:'tall', caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20250921_185156410_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20250921_185156410_iOS 1.jpg',                            pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20250929_181005000_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20260107_231158987_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/JIMMY BOSH ,CARLITOS PADRON CARLOS HENRIQUEZ.jpg',        pos:'center center', size:'wide', caption_es:'Con Jimmy Bosh, Carlitos Padrón y Carlos Henríquez',caption_en:'With Jimmy Bosh, Carlitos Padrón and Carlos Henríquez'},
-  { src:'img/gallery/20260224_013739650_iOS 1.jpg',                            pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20260224_013844470_iOS.jpg',                              pos:'top center',    size:'tall', caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20260224_014001460_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/LUISITO QUINTERO.jpg',                                    pos:'top center',    size:'wide', caption_es:'Con Luisito Quintero',                             caption_en:'With Luisito Quintero'                             },
-  { src:'img/gallery/20260224_014502160_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20260224_025407240_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20260225_014825360_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20260309_001126129_iOS.jpg',                              pos:'center center', size:'wide', caption_es:'Con Jimmy Bosh y orquesta',                        caption_en:'With Jimmy Bosh and orchestra'                     },
-  { src:'img/gallery/20260225_015113810_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20260225_022411690_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/20260225_030428370_iOS.jpg',                              pos:'top center',    size:'std',  caption_es:'Simón Cifuentes',                                  caption_en:'Simón Cifuentes'                                   },
-  { src:'img/gallery/CHRISTIAN MCBRIDE.jpg',                                   pos:'top center',    size:'wide', caption_es:'Con Christian McBride',                             caption_en:'With Christian McBride'                             },
-  { src:'img/gallery/Oscar de Leon.jpg',                                       pos:'top center',    size:'std',  caption_es:'Con Oscar de León',                                caption_en:'With Oscar de León'                                },
+var PHOTOS = [
+  { src:'img/gallery/20240915_223531743_iOS.jpg',       pos:'top center',    size:'wide', es:'En vivo',          en:'Live performance'       },
+  { src:'img/gallery/20231015_022154582_iOS.jpg',       pos:'top center',    size:'tall', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20240915_231114982_iOS.jpg',       pos:'top center',    size:'std',  es:'En escena',        en:'On stage'               },
+  { src:'img/gallery/20250910_183746000_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250910_185244000_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250910_190636000_iOS.jpg',       pos:'top center',    size:'std',  es:'En escena',        en:'On stage'               },
+  { src:'img/gallery/DANILO PEREZ.jpg',                 pos:'top center',    size:'wide', es:'Con Danilo Pérez', en:'With Danilo Pérez'      },
+  { src:'img/gallery/20250921_164717690_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250921_173420900_iOS 1.jpg',     pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250921_183738810_iOS.jpg',       pos:'top center',    size:'tall', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250921_185156410_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250921_185156410_iOS 1.jpg',     pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20250929_181005000_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260107_231158987_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/JIMMY BOSH ,CARLITOS PADRON CARLOS HENRIQUEZ.jpg', pos:'center center', size:'wide', es:'Con Jimmy Bosh, Carlitos Padrón y Carlos Henríquez', en:'With Jimmy Bosh, Carlitos Padrón and Carlos Henríquez' },
+  { src:'img/gallery/20260224_013739650_iOS 1.jpg',     pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260224_013844470_iOS.jpg',       pos:'top center',    size:'tall', es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260224_014001460_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/LUISITO QUINTERO.jpg',             pos:'top center',    size:'wide', es:'Con Luisito Quintero', en:'With Luisito Quintero' },
+  { src:'img/gallery/20260224_014502160_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260224_025407240_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260225_014825360_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260309_001126129_iOS.jpg',       pos:'center center', size:'wide', es:'Con Jimmy Bosh y orquesta', en:'With Jimmy Bosh and orchestra' },
+  { src:'img/gallery/20260225_015113810_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260225_022411690_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/20260225_030428370_iOS.jpg',       pos:'top center',    size:'std',  es:'Simón Cifuentes',  en:'Simón Cifuentes'        },
+  { src:'img/gallery/CHRISTIAN MCBRIDE.jpg',            pos:'top center',    size:'wide', es:'Con Christian McBride', en:'With Christian McBride' },
+  { src:'img/gallery/Oscar de Leon.jpg',                pos:'top center',    size:'std',  es:'Con Oscar de León', en:'With Oscar de León'     }
 ];
 
-let currentLang = 'es';
-let currentIdx  = 0;
-let visibleCount = 9;
-const BATCH_SIZE = 9;
+var currentLang = 'es';
+var currentIdx = 0;
+var visibleCount = 9;
+var BATCH = 9;
 
 function switchLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
-  document.getElementById('btnLangEs').classList.toggle('active', lang==='es');
-  document.getElementById('btnLangEn').classList.toggle('active', lang==='en');
-  document.querySelectorAll('[data-key]').forEach(el => {
-    const k = el.getAttribute('data-key');
-    if (TEXTS[lang][k]) el.textContent = TEXTS[lang][k];
-  });
+  document.getElementById('btnLangEs').classList.toggle('active', lang === 'es');
+  document.getElementById('btnLangEn').classList.toggle('active', lang === 'en');
+  var els = document.querySelectorAll('[data-key]');
+  for (var i = 0; i < els.length; i++) {
+    var k = els[i].getAttribute('data-key');
+    if (TEXTS[lang][k]) els[i].textContent = TEXTS[lang][k];
+  }
   visibleCount = 9;
   renderGallery();
 }
 
 function renderGallery() {
-  const t = TEXTS[currentLang];
-  document.getElementById('galleryCount').textContent =
-    PHOTOS.length + ' ' + t.photos_label;
+  var t = TEXTS[currentLang];
+  document.getElementById('galleryCount').textContent = PHOTOS.length + ' ' + t.photos_label;
+  var grid = document.getElementById('masonry');
+  grid.innerHTML = '';
 
-  const masonry = document.getElementById('masonry');
-  masonry.innerHTML = '';
-  const showing = PHOTOS.slice(0, visibleCount);
-  showing.forEach((photo, i) => {
-    const caption = currentLang === 'es' ? photo.caption_es : photo.caption_en;
-    const item = document.createElement('div');
-    item.className = 'masonry-item ' + (photo.size || 'std');
-    item.onclick = () => openLightbox(i);
-    const loadAttr = i < 4 ? 'eager' : 'lazy';
-    const imgSrc = encodeURI(photo.src);
+  var show = PHOTOS.slice(0, visibleCount);
+  for (var i = 0; i < show.length; i++) {
+    var p = show[i];
+    var cap = currentLang === 'es' ? p.es : p.en;
 
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    img.alt = caption;
-    img.loading = loadAttr;
+    var item = document.createElement('div');
+    item.className = 'masonry-item ' + p.size;
+    item.setAttribute('data-idx', i);
+    item.onclick = (function(idx) { return function() { openLightbox(idx); }; })(i);
+
+    var img = document.createElement('img');
+    img.src = encodeURI(p.src);
+    img.alt = cap;
+    img.loading = i < 4 ? 'eager' : 'lazy';
     img.decoding = 'async';
-    img.style.objectPosition = photo.pos;
+    img.style.objectPosition = p.pos;
     img.onerror = function() { this.style.display = 'none'; };
 
-    const overlay = document.createElement('div');
-    overlay.className = 'masonry-item-overlay';
-    overlay.innerHTML = '<span class="masonry-item-caption">' + caption + '</span>';
+    var ov = document.createElement('div');
+    ov.className = 'masonry-item-overlay';
+    var sp = document.createElement('span');
+    sp.className = 'masonry-item-caption';
+    sp.textContent = cap;
+    ov.appendChild(sp);
 
     item.appendChild(img);
-    item.appendChild(overlay);
-    masonry.appendChild(item);
-  });
+    item.appendChild(ov);
+    grid.appendChild(item);
+  }
 
-  const btn = document.getElementById('btnLoadMore');
+  var btn = document.getElementById('btnLoadMore');
   if (visibleCount >= PHOTOS.length) {
     btn.classList.add('hidden');
   } else {
@@ -509,13 +378,8 @@ function renderGallery() {
 }
 
 function loadMore() {
-  visibleCount = Math.min(visibleCount + BATCH_SIZE, PHOTOS.length);
+  visibleCount = Math.min(visibleCount + BATCH, PHOTOS.length);
   renderGallery();
-  // Scroll to where new photos start
-  const items = document.querySelectorAll('.masonry-item');
-  if (items.length > visibleCount - BATCH_SIZE) {
-    items[visibleCount - BATCH_SIZE].scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
 }
 
 function openLightbox(idx) {
@@ -536,22 +400,22 @@ function changeLightbox(dir) {
 }
 
 function updateLightbox() {
-  const photo = PHOTOS[currentIdx];
-  const caption = currentLang === 'es' ? photo.caption_es : photo.caption_en;
-  document.getElementById('lightboxImg').src = encodeURI(photo.src);
-  document.getElementById('lightboxImg').alt = caption;
-  document.getElementById('lightboxCaption').textContent = caption;
+  var p = PHOTOS[currentIdx];
+  var cap = currentLang === 'es' ? p.es : p.en;
+  document.getElementById('lightboxImg').src = encodeURI(p.src);
+  document.getElementById('lightboxImg').alt = cap;
+  document.getElementById('lightboxCaption').textContent = cap;
   document.getElementById('lightboxCounter').textContent = (currentIdx + 1) + ' / ' + PHOTOS.length;
 }
 
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', function(e) {
   if (!document.getElementById('lightbox').classList.contains('open')) return;
   if (e.key === 'ArrowRight') changeLightbox(1);
-  if (e.key === 'ArrowLeft')  changeLightbox(-1);
-  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft') changeLightbox(-1);
+  if (e.key === 'Escape') closeLightbox();
 });
 
-document.getElementById('lightbox').addEventListener('click', e => {
+document.getElementById('lightbox').addEventListener('click', function(e) {
   if (e.target === document.getElementById('lightbox')) closeLightbox();
 });
 
