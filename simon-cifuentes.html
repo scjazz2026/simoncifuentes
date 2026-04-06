@@ -888,6 +888,85 @@
     }
     .footer-links a:hover { color: var(--primary-container); }
 
+    /* ─── CONTACT FORM MODAL ─── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 10000;
+      background: rgba(28,27,27,0.6);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      background: var(--bg);
+      width: 100%; max-width: 560px;
+      padding: clamp(32px, 5vw, 56px);
+      position: relative;
+      max-height: 90vh; overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute; top: 16px; right: 20px;
+      background: none; border: none;
+      font-size: 1.3rem; color: var(--secondary-txt);
+      cursor: pointer; transition: color 0.3s ease;
+    }
+    .modal-close:hover { color: var(--on-bg); }
+
+    .modal-label {
+      font-family: var(--font-label);
+      font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.45em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 12px;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900; letter-spacing: -0.02em;
+      text-transform: uppercase; color: var(--on-bg);
+      margin-bottom: var(--s-struct);
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { margin-bottom: 20px; }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-label);
+      font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--secondary-txt);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: var(--surface-low);
+      border: 1px solid var(--outline-var);
+      color: var(--on-bg);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--primary-container); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-submit {
+      width: 100%; justify-content: center;
+      margin-top: 8px;
+    }
+
+    @media(max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
     /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -1175,12 +1254,45 @@
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           <span data-key="contact_whatsapp_btn"></span>
         </a>
-        <a href="mailto:titotocatambor@gmail.com" class="btn-ghost-dark" data-key="contact_email_btn"></a>
+        <button onclick="openContactForm()" class="btn-ghost-dark" data-key="contact_email_btn"></button>
         <p class="contact-note" data-key="contact_note"></p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ══ CONTACT FORM MODAL ══ -->
+<div id="contactModal" class="modal-overlay" onclick="if(event.target===this)closeContactForm()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeContactForm()">✕</button>
+    <p class="modal-label" data-key="form_label"></p>
+    <h3 class="modal-title" data-key="form_title"></h3>
+    <form action="https://formsubmit.co/titotocatambor@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde simoncifuentes.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://scjazz2026.github.io/simoncifuentes/simon-cifuentes.html">
+      <div class="form-row">
+        <div class="form-group">
+          <label data-key="form_name"></label>
+          <input type="text" name="nombre" required />
+        </div>
+        <div class="form-group">
+          <label data-key="form_email"></label>
+          <input type="email" name="email" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-key="form_company"></label>
+        <input type="text" name="empresa" />
+      </div>
+      <div class="form-group">
+        <label data-key="form_message"></label>
+        <textarea name="mensaje" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn-brass form-submit" data-key="form_send"></button>
+    </form>
+  </div>
+</div>
 
 <!-- ══ FOOTER ══ -->
 <footer>
@@ -1233,8 +1345,10 @@ const TEXTS = {
     contact_management_label:'Management', contact_booking_label:'Booking',
     contact_base_label:'Ciudad base',
     contact_whatsapp_btn:'Booking por WhatsApp',
-    contact_email_btn:'Enviar email',
+    contact_email_btn:'Enviar mensaje',
     contact_note:'Respondemos en menos de 48 horas. Disponible para giras, festivales, residencias y eventos privados.',
+    form_label:'Contacto', form_title:'Envíanos un mensaje',
+    form_name:'Nombre', form_email:'Email', form_company:'Empresa / Organización', form_message:'Mensaje', form_send:'Enviar mensaje →',
     footer_copy:'© 2025 Simón Cifuentes. Todos los derechos reservados.'
   },
   en: {
@@ -1275,8 +1389,10 @@ const TEXTS = {
     contact_management_label:'Management', contact_booking_label:'Booking',
     contact_base_label:'Based in',
     contact_whatsapp_btn:'Book via WhatsApp',
-    contact_email_btn:'Send email',
+    contact_email_btn:'Send message',
     contact_note:'We respond within 48 hours. Available for tours, festivals, residencies, and private events.',
+    form_label:'Contact', form_title:'Send us a message',
+    form_name:'Name', form_email:'Email', form_company:'Company / Organization', form_message:'Message', form_send:'Send message →',
     footer_copy:'© 2025 Simón Cifuentes. All rights reserved.'
   }
 };
@@ -1346,6 +1462,16 @@ function toggleMenu() {
 function closeMenu() {
   document.getElementById('hamburger').classList.remove('open');
   document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function openContactForm() {
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  applyTexts();
+}
+function closeContactForm() {
+  document.getElementById('contactModal').classList.remove('open');
   document.body.style.overflow = '';
 }
 
