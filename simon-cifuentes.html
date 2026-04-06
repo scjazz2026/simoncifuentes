@@ -82,13 +82,14 @@
 
     .splash-bg-img {
       position: absolute; inset: 0;
-      background: url('img/gallery/20260224_025407240_iOS.jpg') center top/cover no-repeat;
-      opacity: 0.35;
+      background: url('img/gallery/20260224_025407240_iOS.jpg') center center/contain no-repeat;
+      opacity: 0.4;
     }
 
     .splash-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, var(--bg) 10%, rgba(252,249,248,0.3) 100%);
+      background: linear-gradient(to top, var(--bg) 5%, rgba(252,249,248,0.2) 100%);
+      pointer-events: none;
     }
 
     .splash-content {
