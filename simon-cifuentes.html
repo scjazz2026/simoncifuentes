@@ -73,7 +73,7 @@
     /* ─── SPLASH ─── */
     #splash {
       position: fixed; inset: 0; z-index: 9999;
-      background: var(--bg);
+      background: var(--inverse);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       transition: opacity 0.8s ease, visibility 0.8s ease;
@@ -82,14 +82,16 @@
 
     .splash-bg-img {
       position: absolute; inset: 0;
-      background: url('img/gallery/20260224_025407240_iOS.jpg') center 20%/cover no-repeat;
-      filter: grayscale(100%);
-      opacity: 0.5;
+      background: url('img/gallery/20260224_013739650_iOS%201.jpg') center 25%/cover no-repeat;
+      filter: grayscale(30%);
+      opacity: 0.7;
     }
 
     .splash-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, var(--bg) 5%, rgba(252,249,248,0.2) 100%);
+      background:
+        linear-gradient(to top, rgba(28,27,27,0.95) 0%, rgba(28,27,27,0.4) 50%, rgba(28,27,27,0.5) 100%),
+        linear-gradient(to right, rgba(28,27,27,0.5) 0%, transparent 60%, rgba(28,27,27,0.5) 100%);
       pointer-events: none;
     }
 
@@ -104,7 +106,7 @@
       font-family: var(--font-label);
       font-size: 0.65rem; font-weight: 600;
       letter-spacing: 0.45em; text-transform: uppercase;
-      color: var(--primary);
+      color: var(--primary-container);
       margin-bottom: 2rem;
       opacity: 0; animation: fadeUp 0.8s 0.3s ease forwards;
     }
@@ -115,7 +117,7 @@
       font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 0.92;
-      color: var(--on-bg);
+      color: #fff;
       text-transform: uppercase;
       opacity: 0; animation: fadeUp 0.9s 0.5s ease forwards;
     }
@@ -126,7 +128,7 @@
       font-family: var(--font-label);
       font-size: 0.62rem; font-weight: 400;
       letter-spacing: 0.35em; text-transform: uppercase;
-      color: var(--secondary-txt);
+      color: rgba(255,255,255,0.5);
       margin-top: 1.4rem;
       opacity: 0; animation: fadeUp 0.9s 0.7s ease forwards;
     }
@@ -145,8 +147,8 @@
 
     .lang-btn {
       background: transparent;
-      border: 1px solid rgba(28,27,27,0.15);
-      color: var(--secondary-txt);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.7);
       font-family: var(--font-label);
       font-size: 0.68rem; font-weight: 600;
       letter-spacing: 0.3em; text-transform: uppercase;
