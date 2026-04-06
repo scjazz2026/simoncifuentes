@@ -720,7 +720,7 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--surface-dim);
       margin-top: var(--s-struct);
@@ -913,7 +913,7 @@
       .video-sidebar { flex-direction: row; }
       .music-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item:first-child { grid-column: span 2; }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
     }
     @media(max-width: 768px) {
       .nav-links { display: none; }
@@ -1108,11 +1108,15 @@
     <div class="section-label" data-key="section_gallery"></div>
     <h2 data-key="gallery_title"></h2>
     <div class="gallery-grid">
-      <div class="gallery-item"><div class="gallery-placeholder">Foto 1</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Foto 2</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Foto 3</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Foto 4</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Foto 5</div></div>
+      <div class="gallery-item"><a href="galeria.html" target="_blank"><img src="img/gallery/20260224_013844470_iOS.jpg" alt="Simón Cifuentes" loading="lazy" /></a></div>
+      <div class="gallery-item"><a href="galeria.html" target="_blank"><img src="img/gallery/20250910_185244000_iOS.jpg" alt="Simón Cifuentes" loading="lazy" /></a></div>
+      <div class="gallery-item"><a href="galeria.html" target="_blank"><img src="img/gallery/DANILO%20PEREZ.jpg" alt="Simón Cifuentes con Danilo Pérez" loading="lazy" /></a></div>
+      <div class="gallery-item"><a href="galeria.html" target="_blank"><img src="img/gallery/20260225_014825360_iOS.jpg" alt="Simón Cifuentes" loading="lazy" /></a></div>
+      <div class="gallery-item"><a href="galeria.html" target="_blank"><img src="img/gallery/LUISITO%20QUINTERO.jpg" alt="Simón Cifuentes con Luisito Quintero" loading="lazy" /></a></div>
+      <div class="gallery-item"><a href="galeria.html" target="_blank"><img src="img/gallery/20250921_183738810_iOS.jpg" alt="Simón Cifuentes" loading="lazy" /></a></div>
+    </div>
+    <div style="text-align:center; margin-top:var(--s-struct);">
+      <a href="galeria.html" target="_blank" class="btn-brass" data-key="gallery_btn"></a>
     </div>
   </div>
 </section>
@@ -1220,7 +1224,7 @@ const TEXTS = {
     video1_label:'Live · Blue Note New York',
     video2_label:'Cuarteto · En vivo',
     video3_label:'Solo Contrabajo',
-    section_gallery:'Galería', gallery_title:'Imágenes',
+    section_gallery:'Galería', gallery_title:'Imágenes', gallery_btn:'Ver Galería Completa →',
     section_epk:'Prensa', epk_title:'EPK & Press Kit',
     epk_desc:'Descarga el kit de prensa completo: biografía, fotografías en alta resolución, repertorio, links de medios y datos de contacto.',
     epk_feat1:'Biografía', epk_feat2:'Fotografías', epk_feat3:'Repertorio', epk_feat4:'Contacto',
@@ -1262,7 +1266,7 @@ const TEXTS = {
     video1_label:'Live · Blue Note New York',
     video2_label:'Quartet · Live Performance',
     video3_label:'Solo Double Bass',
-    section_gallery:'Gallery', gallery_title:'Images',
+    section_gallery:'Gallery', gallery_title:'Images', gallery_btn:'View Full Gallery →',
     section_epk:'Press', epk_title:'EPK & Press Kit',
     epk_desc:'Download the complete press kit: biography, high-resolution photographs, repertoire, media links, and contact information.',
     epk_feat1:'Biography', epk_feat2:'Photography', epk_feat3:'Repertoire', epk_feat4:'Contact',
