@@ -94,20 +94,21 @@
       letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.3);
     }
 
-    /* GALLERY GRID */
+    /* GALLERY GRID - WATERFALL */
     .gallery-wrap { background: var(--surface-dim); }
     .masonry {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 320px;
-      gap: 3px;
+      column-count: 3;
+      column-gap: 3px;
+      padding: 3px;
     }
     .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 3px;
       overflow: hidden; background: var(--surface-high);
       position: relative; cursor: pointer;
     }
     .masonry-item img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
+      width: 100%; display: block;
       filter: grayscale(100%);
     }
     .masonry-item:hover img {
@@ -202,10 +203,10 @@
 
     /* RESPONSIVE */
     @media(max-width: 900px) {
-      .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 280px; }
+      .masonry { column-count: 2; }
     }
     @media(max-width: 540px) {
-      .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+      .masonry { column-count: 2; }
       .lightbox-nav { display: none; }
     }
   </style>
