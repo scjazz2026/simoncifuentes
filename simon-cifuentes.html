@@ -774,18 +774,21 @@
 
     .epk-features {
       display: flex; justify-content: center;
-      gap: 40px; flex-wrap: wrap;
+      align-items: center;
+      gap: 20px; flex-wrap: wrap;
       margin-bottom: var(--s-struct);
     }
 
-    .epk-feature { text-align: center; }
-    .epk-feature-icon { font-size: 1.8rem; display: block; }
     .epk-feature-label {
       font-family: var(--font-label);
-      font-size: 0.58rem; font-weight: 600;
+      font-size: 0.62rem; font-weight: 600;
       letter-spacing: 0.3em; text-transform: uppercase;
       color: var(--primary-container);
-      display: block; margin-top: 10px;
+    }
+
+    .epk-feature-sep {
+      color: rgba(255,255,255,0.2);
+      font-size: 1rem;
     }
 
     .epk-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -1217,10 +1220,13 @@
       <h2 data-key="epk_title"></h2>
       <p class="epk-desc" data-key="epk_desc"></p>
       <div class="epk-features">
-        <div class="epk-feature"><span class="epk-feature-icon">📄</span><span class="epk-feature-label" data-key="epk_feat1"></span></div>
-        <div class="epk-feature"><span class="epk-feature-icon">🖼</span><span class="epk-feature-label"  data-key="epk_feat2"></span></div>
-        <div class="epk-feature"><span class="epk-feature-icon">🎵</span><span class="epk-feature-label"  data-key="epk_feat3"></span></div>
-        <div class="epk-feature"><span class="epk-feature-icon">🎙</span><span class="epk-feature-label"  data-key="epk_feat4"></span></div>
+        <span class="epk-feature-label" data-key="epk_feat1"></span>
+        <span class="epk-feature-sep">·</span>
+        <span class="epk-feature-label" data-key="epk_feat2"></span>
+        <span class="epk-feature-sep">·</span>
+        <span class="epk-feature-label" data-key="epk_feat3"></span>
+        <span class="epk-feature-sep">·</span>
+        <span class="epk-feature-label" data-key="epk_feat4"></span>
       </div>
       <div class="epk-buttons">
         <a href="epk/simon-cifuentes-epk.pdf" download class="btn-brass"      data-key="epk_download_btn"></a>
