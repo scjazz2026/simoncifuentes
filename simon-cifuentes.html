@@ -73,7 +73,7 @@
     /* ─── SPLASH ─── */
     #splash {
       position: fixed; inset: 0; z-index: 9999;
-      background: var(--inverse);
+      background: var(--bg);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       transition: opacity 0.8s ease, visibility 0.8s ease;
@@ -82,14 +82,13 @@
 
     .splash-bg-img {
       position: absolute; inset: 0;
-      background: url('img/gallery/20260224_025407240_iOS.jpg') center center/cover no-repeat;
-      filter: grayscale(100%);
-      opacity: 0.45;
+      background: url('img/gallery/20260224_025407240_iOS.jpg') 30% center/cover no-repeat;
+      opacity: 0.35;
     }
 
     .splash-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, var(--inverse) 30%, rgba(49,48,48,0.7) 100%);
+      background: linear-gradient(to top, var(--bg) 10%, rgba(252,249,248,0.3) 100%);
     }
 
     .splash-content {
@@ -103,7 +102,7 @@
       font-family: var(--font-label);
       font-size: 0.65rem; font-weight: 600;
       letter-spacing: 0.45em; text-transform: uppercase;
-      color: var(--primary-container);
+      color: var(--primary);
       margin-bottom: 2rem;
       opacity: 0; animation: fadeUp 0.8s 0.3s ease forwards;
     }
@@ -114,7 +113,7 @@
       font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 0.92;
-      color: #fff;
+      color: var(--on-bg);
       text-transform: uppercase;
       opacity: 0; animation: fadeUp 0.9s 0.5s ease forwards;
     }
@@ -125,7 +124,7 @@
       font-family: var(--font-label);
       font-size: 0.62rem; font-weight: 400;
       letter-spacing: 0.35em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: var(--secondary-txt);
       margin-top: 1.4rem;
       opacity: 0; animation: fadeUp 0.9s 0.7s ease forwards;
     }
@@ -144,8 +143,8 @@
 
     .lang-btn {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.55);
+      border: 1px solid rgba(28,27,27,0.15);
+      color: var(--secondary-txt);
       font-family: var(--font-label);
       font-size: 0.68rem; font-weight: 600;
       letter-spacing: 0.3em; text-transform: uppercase;
