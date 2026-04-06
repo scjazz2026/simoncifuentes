@@ -490,12 +490,21 @@ function renderGallery() {
     item.onclick = () => openLightbox(i);
     const loadAttr = i < 4 ? 'eager' : 'lazy';
     const imgSrc = encodeURI(photo.src);
-    item.innerHTML = `
-      <img src="${imgSrc}" alt="${caption}" loading="${loadAttr}" decoding="async" style="object-position:${photo.pos}"
-           onerror="this.outerHTML='<div class=\'img-placeholder\'>${caption}</div>'" />
-      <div class="masonry-item-overlay">
-        <span class="masonry-item-caption">${caption}</span>
-      </div>`;
+
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    img.alt = caption;
+    img.loading = loadAttr;
+    img.decoding = 'async';
+    img.style.objectPosition = photo.pos;
+    img.onerror = function() { this.style.display = 'none'; };
+
+    const overlay = document.createElement('div');
+    overlay.className = 'masonry-item-overlay';
+    overlay.innerHTML = '<span class="masonry-item-caption">' + caption + '</span>';
+
+    item.appendChild(img);
+    item.appendChild(overlay);
     masonry.appendChild(item);
   });
 
