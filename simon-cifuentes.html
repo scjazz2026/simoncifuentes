@@ -83,7 +83,7 @@
     .splash-bg-img {
       position: absolute; inset: 0;
       background: url('img/gallery/20260224_013739650_iOS%201.jpg') center 25%/cover no-repeat;
-      filter: grayscale(30%);
+      filter: none;
       opacity: 0.7;
     }
 
@@ -296,7 +296,7 @@
     .hero-bg-img {
       position: absolute; inset: 0;
       background: url('img/gallery/20250921_173420900_iOS%201.jpg') center 20%/cover no-repeat;
-      filter: grayscale(30%);
+      filter: none;
       opacity: 0.7;
       transition: filter 0.8s ease;
     }
@@ -484,10 +484,10 @@
     .bio-img img {
       width: 100%; height: 100%;
       object-fit: cover;
-      filter: grayscale(100%);
+      filter: none;
       transition: filter 0.8s ease, transform 0.6s ease;
     }
-    .bio-img:hover img { filter: grayscale(20%); transform: scale(1.03); }
+    .bio-img:hover img { transform: scale(1.03); }
 
     /* offset accent block */
     .bio-img::after {
@@ -643,11 +643,11 @@
     }
 
     .track-card iframe {
-      filter: grayscale(100%);
+      filter: none;
       transition: filter 0.6s ease;
     }
     .track-card:hover iframe {
-      filter: grayscale(0%);
+      filter: none;
     }
 
     .player-placeholder {
@@ -671,30 +671,30 @@
       margin-top: var(--s-struct);
     }
 
-    .video-main { position: relative; overflow: hidden; background: var(--surface-mid); padding-bottom: 56.25%; filter: grayscale(100%); transition: filter 0.5s ease; }
-    .video-main:hover { filter: grayscale(0%); }
+    .video-main { position: relative; overflow: hidden; background: var(--surface-mid); padding-bottom: 56.25%; filter: none; transition: filter 0.5s ease; }
+    .video-main:hover { filter: none; }
     .video-sidebar { display: flex; flex-direction: column; gap: 1px; }
-    .video-thumb { flex: 1; min-height: 180px; background: var(--surface-high); position: relative; overflow: hidden; filter: grayscale(100%); transition: filter 0.5s ease; }
-    .video-thumb:hover { filter: grayscale(0%); }
+    .video-thumb { flex: 1; min-height: 180px; background: var(--surface-high); position: relative; overflow: hidden; filter: none; transition: filter 0.5s ease; }
+    .video-thumb:hover { filter: none; }
 
     .video-main iframe,
     .video-thumb iframe {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%; border: 0;
-      filter: grayscale(100%);
+      filter: none;
       transition: filter 0.6s ease;
     }
     .video-main:hover iframe,
     .video-thumb:hover iframe {
-      filter: grayscale(0%);
+      filter: none;
     }
 
     .video-thumb img, .video-main img {
       width: 100%; height: 100%; object-fit: cover;
-      filter: grayscale(100%);
+      filter: none;
       transition: filter 0.5s ease, transform 0.6s ease;
     }
-    .video-thumb:hover img, .video-main:hover img { filter: grayscale(20%); transform: scale(1.04); }
+    .video-thumb:hover img, .video-main:hover img { transform: scale(1.04); }
 
     .video-overlay {
       position: absolute; inset: 0;
@@ -746,10 +746,10 @@
     .gallery-item img {
       width: 100%; height: 100%;
       object-fit: cover; min-height: 220px;
-      filter: grayscale(100%);
+      filter: none;
       transition: filter 0.6s ease, transform 0.6s ease;
     }
-    .gallery-item:hover img { filter: grayscale(0%); transform: scale(1.04); }
+    .gallery-item:hover img { filter: none; transform: scale(1.04); }
 
     .gallery-placeholder {
       width: 100%; min-height: 220px;
@@ -1108,14 +1108,14 @@
       <div class="bio-text-wrap reveal reveal-delay-1">
         <h2 data-key="bio_title"></h2>
         <div class="bio-toggle">
-          <button class="toggle-btn active" id="btnBioShort" onclick="showBio('short')" data-key="bio_short_label"></button>
-          <button class="toggle-btn"        id="btnBioLong"  onclick="showBio('long')"  data-key="bio_long_label"></button>
+          <button class="toggle-btn" id="btnBioShort" onclick="showBio('short')" data-key="bio_short_label"></button>
+          <button class="toggle-btn active"        id="btnBioLong"  onclick="showBio('long')"  data-key="bio_long_label"></button>
         </div>
-        <div class="bio-version active" id="bioShort">
+        <div class="bio-version" id="bioShort">
           <p class="bio-lead" id="bioShortLead"></p>
           <p class="bio-text" id="bioShortText"></p>
         </div>
-        <div class="bio-version" id="bioLong">
+        <div class="bio-version active" id="bioLong">
           <p class="bio-text" id="bioLongText1"></p>
           <p class="bio-text" id="bioLongText2"></p>
           <p class="bio-text" id="bioLongText3"></p>
@@ -1355,15 +1355,15 @@ const TEXTS = {
     highlights:[
       'El músico latino más joven en tocar en el Blue Note Nueva York y São Paulo',
       'Miembro de la Jazz at Lincoln Center Youth Orchestra',
-      'Colaboraciones con Wynton Marsalis, Carlos Vives, Tito Puente Jr. y más'
+      'Colaboraciones con Wynton Marsalis, Carlos Vives, Tito Puente Jr., Tony Succar, Patrick Bartley y más'
     ],
     section_bio:'Biografía', bio_title:'Un artista singular',
     bio_short_label:'Corta', bio_long_label:'Completa',
-    bio_short_lead:'Contrabajista, compositor e intérprete, cuya voz artística se sitúa en el cruce entre el jazz contemporáneo y las músicas de América Latina.',
-    bio_short:'Simón Cifuentes es un multiinstrumentista colombiano radicado en Nueva York. Se ha presentado como solista en escenarios emblemáticos como el Blue Note de Nueva York y São Paulo, convirtiéndose en uno de los músicos latinoamericanos más jóvenes en hacerlo. Actualmente integra la Jazz at Lincoln Center Youth Orchestra y prepara el lanzamiento de dos producciones discográficas: un álbum de jazz grabado en vivo y un proyecto de salsa con invitados internacionales.',
-    bio_long_1:'Simón Cifuentes es un multiinstrumentista colombiano radicado en Nueva York, cuya propuesta artística se desarrolla en el tejido entre el jazz contemporáneo y las músicas latinoamericanas. Contrabajista, compositor y cantante, domina instrumentos como el contrabajo, tiple, cuatro y piano, construyendo un lenguaje propio que trasciende la noción de virtuosismo precoz para situarse en una comprensión inusual del sonido, el tiempo y la tradición.',
-    bio_long_2:'Simón ha marcado un hito al presentarse como solista en el Blue Note de Nueva York y São Paulo desde los 12 años. Actualmente forma parte de la Jazz at Lincoln Center Youth Orchestra, donde ha participado en conciertos en el Rose Theater. Su formación ha sido enriquecida por el contacto directo con Wynton Marsalis, clases magistrales con Christian McBride, y experiencias escénicas junto a Tony Succar, Luisito Quintero y otros referentes del jazz y la música latina.',
-    bio_long_3:'Actualmente prepara dos producciones discográficas: un álbum de jazz en vivo grabado en el Blue Note, y un proyecto de salsa con invitados internacionales. En escena, el contrabajo se convierte en el eje conceptual de su propuesta. Lo que distingue a Simón no es su edad, sino su manera de escuchar: una sensibilidad que le permite habitar la música como un espacio vivo.',
+    bio_short_lead:'Multiinstrumentista colombiano radicado en Nueva York, cuya propuesta artística se desarrolla en el tejido entre el jazz contemporáneo y las músicas latinoamericanas.',
+    bio_short:'Simón Cifuentes es contrabajista, compositor y cantante. Domina instrumentos como el contrabajo, tiple, cuatro y piano. Ha marcado un hito al presentarse como solista en el Blue Note de Nueva York y São Paulo desde los 12 años. Actualmente forma parte de la Jazz at Lincoln Center Youth Orchestra y prepara el lanzamiento de dos producciones discográficas: un álbum de jazz grabado en vivo en el Blue Note y un proyecto de salsa con destacados invitados internacionales.',
+    bio_long_1:'Simón Cifuentes es un multiinstrumentista colombiano radicado en Nueva York, cuya propuesta artística se desarrolla en el tejido entre el jazz contemporáneo y las músicas latinoamericanas. Contrabajista, compositor y cantante, domina instrumentos como el contrabajo, tiple, cuatro y piano, construyendo un lenguaje propio que trasciende la noción de virtuosismo precoz para situarse en una comprensión inusual del sonido, el tiempo y la tradición. Desde muy temprana edad ha mostrado una relación orgánica con la música, no como ejecución, sino como pensamiento. Su aproximación al jazz no es imitativa, sino interpretativa, entiende el género como un territorio abierto donde convergen historia, identidad y exploración.',
+    bio_long_2:'Simón ha marcado un hito al presentarse como solista en el Blue Note de Nueva York y São Paulo desde los 12 años, consolidándose como una de las voces más sólidas dentro de la nueva generación del jazz latino. Actualmente forma parte de la Jazz at Lincoln Center Youth Orchestra, donde ha participado en conciertos en el Rose Theater, uno de los escenarios más importantes del circuito jazzístico mundial. Su formación ha sido enriquecida por el contacto directo con referentes del género como Wynton Marsalis, así como por clases magistrales con Christian McBride, y experiencias escénicas junto a músicos como Tony Succar, Luisito Quintero y otros exponentes del jazz y la música latina. En paralelo, ha desarrollado una fuerte presencia en el circuito latino en Nueva York, participando en festivales y escenarios como Terraza 7, donde ha presentado repertorios de salsa que conversan con su formación jazzística. Su recorrido incluye una destacada participación en La Voz Kids, donde exploró el canto desde temprana edad, ampliando su identidad como intérprete integral.',
+    bio_long_3:'Actualmente, Simón se encuentra en el proceso de lanzamiento de dos producciones discográficas: un álbum de jazz grabado en vivo en el Blue Note, compuesto en gran parte por obras originales, y un proyecto de salsa que reúne a destacados invitados internacionales. Ambas producciones reflejan su capacidad de moverse entre lenguajes sin perder coherencia artística. En escena, el contrabajo se convierte en el eje conceptual de su propuesta. A partir de allí, articula un universo sonoro donde integra distintos instrumentos y formatos, generando experiencias que oscilan entre la energía rítmica de la música latina y la profundidad expresiva del jazz clásico. Más allá de su edad, lo que distingue a Simón es su manera de escuchar, es poseedor de una sensibilidad que le permite habitar la música como un espacio vivo. No se proyecta como promesa, sino como una realidad artística en construcción, capaz de dialogar con el presente y anticipar nuevas formas dentro del jazz y la música latinoamericana.',
     bio_meta_base_label:'Ciudad base', bio_meta_inst_label:'Instrumento principal',
     bio_meta_inst_value:'Contrabajo',
     section_music:'Música', music_title:'Escuchar', music_spotify_btn:'Ver en Spotify →',
@@ -1399,15 +1399,15 @@ const TEXTS = {
     highlights:[
       'Youngest Latin musician to perform at Blue Note New York and São Paulo',
       'Member of the Jazz at Lincoln Center Youth Orchestra',
-      'Collaborations with Wynton Marsalis, Carlos Vives, Tito Puente Jr. and more'
+      'Collaborations with Wynton Marsalis, Carlos Vives, Tito Puente Jr., Tony Succar, Patrick Bartley and more'
     ],
     section_bio:'Biography', bio_title:'A singular artist',
     bio_short_label:'Short', bio_long_label:'Full',
-    bio_short_lead:'Double bassist, composer and performer, whose artistic voice stands at the intersection of contemporary jazz and the musical traditions of Latin America.',
-    bio_short:'Simón Cifuentes is a Colombian multi-instrumentalist based in New York. He has performed as a soloist at iconic venues such as the Blue Note New York and Blue Note São Paulo, becoming one of the youngest Latin American musicians to do so. He is currently a member of the Jazz at Lincoln Center Youth Orchestra and is preparing two recording projects: a live jazz album and a salsa production featuring international guest artists.',
-    bio_long_1:'Simón Cifuentes is a Colombian multi-instrumentalist based in New York, whose artistic vision is rooted in the dialogue between contemporary jazz and Latin American musical traditions. A double bassist, composer, and vocalist, he performs across instruments including double bass, tiple, cuatro, and piano, shaping a musical language that moves beyond early virtuosity toward a deeper understanding of sound, time, and tradition.',
-    bio_long_2:'Simón reached a significant milestone by performing as a soloist at the Blue Note New York and Blue Note São Paulo from the age of twelve. He is currently part of the Jazz at Lincoln Center Youth Orchestra, where he has performed at the Rose Theater. His artistic development has been shaped through direct engagement with Wynton Marsalis, masterclasses with Christian McBride, and live collaborations with Tony Succar and Luisito Quintero, among others.',
-    bio_long_3:'He is currently preparing two albums: a live jazz recording from the Blue Note featuring original compositions, and a salsa project with internationally recognized guest artists. On stage, the double bass functions as the conceptual core of his performance. Beyond his age, what distinguishes Simón is his capacity to listen—a musical sensitivity that allows him to inhabit music as a living space.',
+    bio_short_lead:'Colombian multi-instrumentalist based in New York, whose artistic vision is rooted in the dialogue between contemporary jazz and Latin American musical traditions.',
+    bio_short:'Simón Cifuentes is a double bassist, composer, and vocalist. He performs across instruments including double bass, tiple, cuatro, and piano. He reached a significant milestone by performing as a soloist at the Blue Note New York and Blue Note São Paulo from the age of twelve. He is currently part of the Jazz at Lincoln Center Youth Orchestra and is preparing the release of two albums: a live jazz recording from the Blue Note and a salsa project with internationally recognized guest artists.',
+    bio_long_1:'Simón Cifuentes is a Colombian multi-instrumentalist based in New York, whose artistic vision is rooted in the dialogue between contemporary jazz and Latin American musical traditions. A double bassist, composer, and vocalist, he performs across instruments including double bass, tiple, cuatro, and piano, shaping a musical language that moves beyond early virtuosity toward a deeper understanding of sound, time, and tradition. From an early age, he has approached music not merely as execution, but as a form of thought. His relationship with jazz is not imitative, but interpretative—he understands the genre as an open territory where history, identity, and exploration converge.',
+    bio_long_2:'Simón reached a significant milestone by performing as a soloist at the Blue Note New York and Blue Note São Paulo from the age of twelve, establishing himself as one of the most compelling emerging voices in the new generation of Latin jazz. He is currently part of the Jazz at Lincoln Center Youth Orchestra, where he has performed at the Rose Theater, one of the most prestigious venues in the global jazz circuit. His artistic development has been shaped through direct engagement with leading figures such as Wynton Marsalis, as well as masterclasses with Christian McBride, and live collaborations with artists including Tony Succar and Luisito Quintero, among others within the jazz and Latin music scenes. In parallel, he has built a strong presence within New York\'s Latin music circuit, performing at festivals and venues such as Terraza 7, where he has presented salsa-driven projects that engage in dialogue with his jazz background. His artistic path also includes a notable appearance on La Voz Kids (Colombia), where he explored his vocal identity at an early age.',
+    bio_long_3:'Simón is currently preparing the release of two albums: a live jazz recording from the Blue Note featuring primarily original compositions, and a salsa project with internationally recognized guest artists. Together, these works reflect his ability to navigate multiple musical languages while maintaining a coherent artistic identity. On stage, the double bass functions as the conceptual core of his performance. From this foundation, he builds a sonic universe that integrates multiple instruments and formats, creating experiences that move between the rhythmic energy of Latin music and the expressive depth of jazz. Beyond his age, what distinguishes Simón is his capacity to listen. He embodies a musical sensitivity that allows him to inhabit music as a living space. He is not a promise of what is to come, but an evolving artistic presence already in dialogue with the present and shaping the future of jazz and Latin music.',
     bio_meta_base_label:'Based in', bio_meta_inst_label:'Primary instrument',
     bio_meta_inst_value:'Double Bass',
     section_music:'Music', music_title:'Listen', music_spotify_btn:'View on Spotify →',
