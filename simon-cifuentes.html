@@ -650,6 +650,38 @@
       filter: none;
     }
 
+    .album-feature {
+      background: var(--inverse-low);
+      padding: var(--s-struct);
+      margin-bottom: var(--s-struct);
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid transparent;
+      border-image: var(--brass-gradient) 1;
+    }
+    .album-tag {
+      display: block;
+      font-family: var(--font-label, var(--font-body));
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: var(--brass-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    .album-feature iframe { display: block; }
+
+    .music-subhead {
+      font-family: var(--font-label, var(--font-body));
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--outline-var, rgba(255,255,255,0.5));
+      margin-bottom: 16px;
+    }
+
     .player-placeholder {
       width: 100%; height: 80px;
       background: rgba(255,255,255,0.04);
@@ -1167,6 +1199,11 @@
       </div>
       <a href="https://open.spotify.com/artist/6afq5I1JRhp3TB03LZQ3wA" target="_blank" class="btn-ghost" data-key="music_spotify_btn" rel="noopener"></a>
     </div>
+    <div class="album-feature reveal">
+      <span class="album-tag" data-key="music_album_tag"></span>
+      <iframe src="https://open.spotify.com/embed/album/6g1UIcTUGm6DKXqDpA7CBL?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="music-subhead" data-key="music_featured_label"></div>
     <div class="music-grid">
       <div class="track-card reveal">
         <span class="track-number">01</span>
@@ -1367,6 +1404,7 @@ const TEXTS = {
     bio_meta_base_label:'Ciudad base', bio_meta_inst_label:'Instrumento principal',
     bio_meta_inst_value:'Contrabajo',
     section_music:'Música', music_title:'Escuchar', music_spotify_btn:'Ver en Spotify →',
+    music_album_tag:'Álbum en vivo · Blue Note São Paulo', music_featured_label:'Destacados',
     track1_genre:'Jazz', track1_title:'Track 1',
     track2_genre:'Latino / Salsa', track2_title:'Track 2',
     track3_genre:'Híbrido', track3_title:'Track 3',
@@ -1411,6 +1449,7 @@ const TEXTS = {
     bio_meta_base_label:'Based in', bio_meta_inst_label:'Primary instrument',
     bio_meta_inst_value:'Double Bass',
     section_music:'Music', music_title:'Listen', music_spotify_btn:'View on Spotify →',
+    music_album_tag:'Live album · Blue Note São Paulo', music_featured_label:'Featured',
     track1_genre:'Jazz', track1_title:'Track 1',
     track2_genre:'Latin / Salsa', track2_title:'Track 2',
     track3_genre:'Hybrid', track3_title:'Track 3',
